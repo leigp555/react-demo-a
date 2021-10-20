@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import App from "./app.js"
 const root = document.querySelector("#root");
 let n = 0;
-const Demo = 
-  React.createElement("div", { className: "red", key: "fuck" }, [
+const Demo = () =>{                 //这里箭头函数可以用加{}但是就要手动return ,如果不加{}就不用自己加return了
+  return React.createElement("div", { className: "red", key: "fuck" }, [   
     n,
     React.createElement(
       "button",
@@ -12,12 +13,12 @@ const Demo =
         key: "fuckX",
         onClick: () => {
           n += 1;
-          ReactDOM.render(Demo, root);
-         
+          ReactDOM.render(Demo(), root);
         },
       },
       "+1"
     ),
-  ]);
-   console.log(n)
-ReactDOM.render(Demo, root);
+  ])};
+ReactDOM.render(Demo(), root);
+const app=document.querySelector("#app")
+ReactDOM.render(<App />, app);
